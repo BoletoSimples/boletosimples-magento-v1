@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Codigo5_BoletoSimples>
+            <version>0.1.0</version>
+        </Codigo5_BoletoSimples>
+    </modules>
+    <global>
+        <helpers>
+            <codigo5_boletosimples>
+                <class>Codigo5_BoletoSimples_Helper</class>
+            </codigo5_boletosimples>
+        </helpers>
+        <blocks>
+            <codigo5_boletosimples>
+                <class>Codigo5_BoletoSimples_Block</class>
+            </codigo5_boletosimples>
+        </blocks>
+        <models>
+          <codigo5_boletosimples>
+              <class>Codigo5_BoletoSimples_Model</class>
+          </codigo5_boletosimples>
+        </models>
+    </global>
+</config>

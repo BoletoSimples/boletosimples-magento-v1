@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <payment>
+            <tab>sales</tab>
+            <groups>
+                <frontend>
+                    <label>BoletoSimples</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <status translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </status>
+                        <environment translate="label">
+                            <label>Environment</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>codigo5_boletosimples/system_config_source_environment</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <status>1</status>
+                            </depends>
+                        </environment>
+                        <access_token translate="label">
+                            <label>Access Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <status>1</status>
+                            </depends>
+                        </access_token>
+                    </fields>
+                </frontend>
+            </groups>
+        </payment>
+    </sections>
+</config>

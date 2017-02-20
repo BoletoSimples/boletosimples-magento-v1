@@ -1,0 +1,27 @@
+{
+    "name": "codigo5/boletosimples-magento-v1",
+    "type": "magento-module",
+    "keywords": [
+        "codigo cinco",
+        "codigo 5",
+        "codigocinco",
+        "codigo5",
+        "boleto simples",
+        "boletosimples",
+        "boleto",
+        "boleto bancario"
+    ],
+    "homepage": "https://github.com/BoletoSimples/boletosimples-magento-v1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dhyego Fernando",
+            "email": "dhyegofernando@gmail.com",
+            "homepage": "https://github.com/dhyegofernando"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "boletosimples/boletosimples": "^0.0.5"
+    }
+}
