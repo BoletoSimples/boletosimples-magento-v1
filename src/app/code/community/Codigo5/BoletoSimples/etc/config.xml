@@ -22,4 +22,29 @@
           </codigo5_boletosimples>
         </models>
     </global>
+    <default>
+        <payment>
+            <boletosimples>
+                <active>0</active>
+                <model>codigo5_boletosimples/payment_method_boletoSimples</model>
+                <allowspecific>0</allowspecific>
+                <order_status>pending</order_status>
+                <title>Boleto Simples</title>
+                <environment>sandbox</environment>
+                <sort_order>100</sort_order>
+            </boletosimples>
+        </payment>
+    </default>
+    <adminhtml>
+        <events>
+            <admin_system_config_changed_section_payment>
+                <observers>
+                    <codigo5_boletosimples_check_auth_config>
+                        <model>codigo5_boletosimples/observer</model>
+                        <method>checkAuthConfig</method>
+                    </codigo5_boletosimples_check_auth_config>
+                </observers>
+            </admin_system_config_changed_section_payment>
+        </events>
+    </adminhtml>
 </config>

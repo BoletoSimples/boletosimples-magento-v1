@@ -20,6 +20,9 @@
             "homepage": "https://github.com/dhyegofernando"
         }
     ],
+    "config": {
+        "vendor-dir": "src/lib/boletosimples"
+    },
     "require": {
         "php": ">=5.4.0",
         "boletosimples/boletosimples": "^0.0.5"

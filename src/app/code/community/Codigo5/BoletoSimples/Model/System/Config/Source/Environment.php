@@ -2,7 +2,7 @@
 
 class Codigo5_BoletoSimples_Model_System_Config_Source_Environment
 {
-    const ENVIRONMENT_STAGING = 'staging';
+    const ENVIRONMENT_SANDBOX = 'sandbox';
     const ENVIRONMENT_PRODUCTION = 'production';
 
     protected $_options;
@@ -19,14 +19,16 @@ class Codigo5_BoletoSimples_Model_System_Config_Source_Environment
 
             $this->_options = array(
                 array(
-                    'label' => $_helper->__('Staging'),
-                    'value' => self::ENVIRONMENT_STAGING
+                    'label' => $_helper->__('Sandbox'),
+                    'value' => self::ENVIRONMENT_SANDBOX
                 ),
                 array(
                     'label' => $_helper->__('Production'),
                     'value' => self::ENVIRONMENT_PRODUCTION
                 )
             );
+
+            $this->_options = $_helper->addBlankOption($this->_options);
         }
 
         return $this->_options;
