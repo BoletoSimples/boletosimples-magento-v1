@@ -13,7 +13,8 @@ class Codigo5_BoletoSimples_Model_Observer
                 $user = BoletoSimples\Extra::userinfo();
 
                 Mage::getSingleton('core/session')->addSuccess(
-                    new Codigo5_BoletoSimples_MessageBuilder(
+                    Mage::getModel(
+                        'codigo5_boletosimples/messageBuilder',
                         $_helper->__('Hello %s, we have successfully saved your credentials.', $user['full_name'])
                     )
                 );

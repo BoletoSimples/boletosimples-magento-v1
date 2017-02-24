@@ -1,6 +1,6 @@
 <?php
 
-class Codigo5_BoletoSimples_MessageBuilder
+class Codigo5_BoletoSimples_Model_MessageBuilder
 {
     protected $message;
     protected $prefix;

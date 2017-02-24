@@ -11,18 +11,24 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
     protected $_canUseForMultishipping = true;
     protected $_isInitializeNeeded     = true;
 
-    /**
-     * Method that will be executed instead of authorize or capture
-     * if flag isInitializeNeeded set to true
-     *
-     * @param string $paymentAction
-     * @param object $stateObject
-     *
-     * @return Mage_Payment_Model_Abstract
-     */
-    public function initialize($paymentAction, $stateObject)
+    public function getOrderPlaceRedirectUrl()
     {
-        // TODO
-        return $this;
+        return Mage::getUrl('codigo5_boletosimples/payment/request');
+    }
+
+    public function register(Mage_Sales_Model_Order $order)
+    {
+        // TODO After register the bank billet
+        // set order state, status and comment with:
+        //
+        // $order->setStatus(
+        //    Mage_Sales_Model_Order::STATE_PROCESSING,
+        //    $paymentMethod->getConfigData('order_status'),
+        //    $helper->__('Bank billet has been created'),
+        //    false
+        // );
+        return array(
+            'shorten_url' => 'https://bit.ly/cod5'
+        );
     }
 }

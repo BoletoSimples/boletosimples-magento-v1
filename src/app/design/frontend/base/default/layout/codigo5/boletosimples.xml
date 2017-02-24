@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <codigo5_boletosimples_payment_request>
+        <reference name="content">
+            <block type="checkout/onepage_success" name="checkout.success" template="codigo5/boletosimples/checkout/success.phtml"></block>
+        </reference>
+    </codigo5_boletosimples_payment_request>
+</layout>

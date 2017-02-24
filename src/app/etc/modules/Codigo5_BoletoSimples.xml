@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <codigo5_boletosimples>
+        <Codigo5_BoletoSimples>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
                 <Mage_Payment/>
             </depends>
-        </codigo5_boletosimples>
+        </Codigo5_BoletoSimples>
     </modules>
 </config>

@@ -54,4 +54,22 @@
             </updates>
         </layout>
     </adminhtml>
+    <frontend>
+        <routers>
+            <codigo5_boletosimples>
+                <use>standard</use>
+                <args>
+                    <module>Codigo5_BoletoSimples</module>
+                    <frontName>codigo5_boletosimples</frontName>
+                </args>
+            </codigo5_boletosimples>
+        </routers>
+        <layout>
+            <updates>
+                <codigo5_boletosimples>
+                    <file>codigo5/boletosimples.xml</file>
+                </codigo5_boletosimples>
+            </updates>
+        </layout>
+    </frontend>
 </config>

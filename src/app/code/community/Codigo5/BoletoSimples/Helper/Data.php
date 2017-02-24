@@ -65,4 +65,13 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
             'access_token' => $paymentMethod->getConfigData('access_token')
         ));
     }
+
+    public function wrapException(Exception $exception)
+    {
+        return new Codigo5_BoletoSimples_Exception(
+            $exception->getMessage(),
+            $exception->getCode(),
+            $exception
+        );
+    }
 }
