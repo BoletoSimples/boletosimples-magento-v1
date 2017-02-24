@@ -46,5 +46,12 @@
                 </observers>
             </admin_system_config_changed_section_payment>
         </events>
+        <layout>
+            <updates>
+                <codigo5_boletosimples>
+                    <file>codigo5/boletosimples.xml</file>
+                </codigo5_boletosimples>
+            </updates>
+        </layout>
     </adminhtml>
 </config>

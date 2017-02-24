@@ -1,0 +1,24 @@
+<div id="boletosimples-header">
+    <div class="wrapper">
+        <div class="column-left">
+            <img src="<?php echo $this->getLogoUrl() ?>" title="Boleto Simples" alt="Boleto Simples" class="logo-img">
+            <div class="info">
+                <span class="label version">
+                    <strong><?php echo $this->__('Version ') ?></strong>
+                    <?php echo $this->getVersion() ?>
+                </span>
+                <span class="label author">
+                    <strong><?php echo $this->__('Developed by ') ?></strong>
+                    <a href="<?php echo $this->getAuthorUrl() ?>" target="_blank" class="author-link">
+                        <img src="<?php echo $this->getAuthorLogoUrl() ?>" title="<?php echo $this->getAuthorName() ?>" alt="<?php echo $this->getAuthorName() ?>" class="author-logo">
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="column-right">
+            <a href="<?php echo $this->getRegisterUrl() ?>" class="btn" target="_blank">
+                <?php echo $this->__('Don\'t you have an account? Register for free.') ?>
+            </a>
+        </div>
+    </div>
+</div>
