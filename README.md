@@ -1,5 +1,5 @@
 # boletosimples-magento-v1
-Módulo de Integração do BoletoSimples para o e-commerce Magento 1.x
+Módulo de Integração do Boleto Simples para o e-commerce Magento 1.x
 
 *Colocaremos alguns prints por aqui*
 
