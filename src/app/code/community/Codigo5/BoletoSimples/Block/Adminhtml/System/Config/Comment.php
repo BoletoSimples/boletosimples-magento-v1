@@ -9,12 +9,12 @@ class Codigo5_BoletoSimples_Block_Adminhtml_System_Config_Comment extends Mage_C
 
     public function getLogoUrl()
     {
-        return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . 'adminhtml/default/default/codigo5/boletosimples/images/boletosimples.png';
+        return $this->_getHelper()->getLogoUrl();
     }
 
     public function getRegisterUrl()
     {
-        return 'https://boletosimples.com.br/users/sign_up';
+        return $this->_getHelper()->getRegisterUrl();
     }
 
     public function getAuthorName()

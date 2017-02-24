@@ -4,6 +4,9 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
 {
     const VERSION = '0.1.0';
 
+    const LOGO_SKIN_PATH = 'adminhtml/default/default/codigo5/boletosimples/images/boletosimples.png';
+    const REGISTER_URL   = 'https://boletosimples.com.br/users/sign_up';
+
     const AUTHOR_NAME           = 'Código5';
     const AUTHOR_URL            = 'https://www.codigo5.com.br';
     const AUTHOR_LOGO_SKIN_PATH = 'adminhtml/default/default/codigo5/boletosimples/images/codigo5.png';
@@ -11,6 +14,16 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
     public function getVersion()
     {
         return self::VERSION;
+    }
+
+    public function getLogoUrl()
+    {
+        return Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN) . self::LOGO_SKIN_PATH;
+    }
+
+    public function getRegisterUrl()
+    {
+        return self::REGISTER_URL;
     }
 
     public function getAuthorName()
