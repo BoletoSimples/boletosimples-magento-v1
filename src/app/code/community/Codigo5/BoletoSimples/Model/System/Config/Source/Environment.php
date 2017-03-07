@@ -1,6 +1,6 @@
 <?php
 
-class Codigo5_BoletoSimples_Model_System_Config_Source_Environment
+class Codigo5_BoletoSimples_Model_System_Config_Source_Environment extends Codigo5_BoletoSimples_Model_System_Config_Source_Abstract
 {
     const ENVIRONMENT_SANDBOX = 'sandbox';
     const ENVIRONMENT_PRODUCTION = 'production';
@@ -32,21 +32,5 @@ class Codigo5_BoletoSimples_Model_System_Config_Source_Environment
         }
 
         return $this->_options;
-    }
-
-    /**
-     * Get options in "key-value" format
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $array = array();
-
-        foreach ($this->toOptionArray() as $option) {
-            $array[$option['value']] = $option['label'];
-        }
-
-        return $array;
     }
 }

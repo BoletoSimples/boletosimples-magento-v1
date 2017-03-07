@@ -1,6 +1,6 @@
 <?php
 
-class Codigo5_BoletoSimples_Model_System_Config_Source_Customer_Attributes
+class Codigo5_BoletoSimples_Model_System_Config_Source_Customer_Attributes extends Codigo5_BoletoSimples_Model_System_Config_Source_Abstract
 {
     protected $_options;
 
@@ -28,21 +28,5 @@ class Codigo5_BoletoSimples_Model_System_Config_Source_Customer_Attributes
         }
 
         return $this->_options;
-    }
-
-    /**
-     * Get options in "key-value" format
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        $array = array();
-
-        foreach ($this->toOptionArray() as $option) {
-            $array[$option['value']] = $option['label'];
-        }
-
-        return $array;
     }
 }
