@@ -3,6 +3,7 @@
 $installer = $this;
 $installer->startSetup();
 
+// Setup Regions
 $countries = array(
     'BR' => array(
         'AC' => 'Acre',
@@ -52,5 +53,11 @@ foreach ($countries as $countryId => $regions) {
             ->save();
     }
 }
+
+// Setup Order Attributes
+$setup = new Mage_Sales_Model_Resource_Setup('core_setup');
+$setup
+    ->addAttribute('order', 'boletosimples_bank_billet_id', array('type' => 'varchar'))
+    ->addAttribute('order', 'boletosimples_bank_billet_url', array('type' => 'varchar'));
 
 $installer->endSetup();

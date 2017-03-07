@@ -19,7 +19,7 @@ class Codigo5_BoletoSimples_Block_Adminhtml_System_Config_Comment extends Mage_C
 
     public function getChangeAddressLinesUrl()
     {
-        return Mage::helper('adminhtml')->getUrl('system_config/edit/section/customer');
+        return Mage::getModel('adminhtml/url')->getUrl('adminhtml/system_config/edit', array('section' => 'customer'));
     }
 
     public function getAuthorName()
