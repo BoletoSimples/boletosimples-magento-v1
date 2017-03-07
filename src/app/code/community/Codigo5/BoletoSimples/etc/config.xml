@@ -16,6 +16,13 @@
                 <class>Codigo5_BoletoSimples_Block</class>
             </codigo5_boletosimples>
         </blocks>
+        <resources>
+            <codigo5_boletosimples>
+                <setup>
+                    <module>Codigo5_BoletoSimples</module>
+                </setup>
+            </codigo5_boletosimples>
+        </resources>
         <models>
           <codigo5_boletosimples>
               <class>Codigo5_BoletoSimples_Model</class>
