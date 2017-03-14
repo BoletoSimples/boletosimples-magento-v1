@@ -10,7 +10,7 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
 
     public function build(Mage_Sales_Model_Order $order)
     {
-        $this->reset();
+        $this->unsetData();
         $this->addData(array(
             'amount' => $this->buildAmount($order),
             'expire_at' => $this->buildExpireAt($order),
@@ -29,11 +29,6 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
             'meta' => $this->buildMeta($order)
         ));
         return $this;
-    }
-
-    public function reset()
-    {
-        return $this->unsetData();
     }
 
     protected function getHelper()
@@ -143,6 +138,6 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
 
     private function getExpiryDays(Mage_Sales_Model_Order $order)
     {
-        return (int)$this->getHelper()->getConfig('expiry_days', $order->getStoreId(), 1);
+        return (int)$this->getHelper()->getConfig('expiry_days', 1, $order->getStoreId());
     }
 }

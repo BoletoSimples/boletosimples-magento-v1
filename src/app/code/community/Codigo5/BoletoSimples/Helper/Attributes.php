@@ -2,9 +2,9 @@
 
 class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Helper_Data
 {
-    public function getAttribute(Varien_Object $object, $attributeCode, $storeId = null, $default = null, callable $handler = null)
+    public function getAttribute(Varien_Object $object, $attributeCode, $default = null, $storeId = null, callable $handler = null)
     {
-        $attribute = $this->getConfig("{$attributeCode}_attribute_code", $storeId, $default);
+        $attribute = $this->getConfig("{$attributeCode}_attribute_code", $default, $storeId);
 
         if ($attribute) {
             if ($handler) {
@@ -20,6 +20,7 @@ class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Help
         return $this->getAttribute(
             $customer,
             'cpf_cnpj',
+            null,
             $storeId
         );
     }
@@ -29,8 +30,8 @@ class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Help
         return $this->getAttribute(
             $address,
             $attributeCode,
-            $storeId,
             null,
+            $storeId,
             function($address, $attribute) {
                 return $address->getStreet($attribute);
             }
@@ -42,6 +43,7 @@ class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Help
         return $this->getAddressLine(
             $address,
             'address',
+            null,
             $storeId
         );
     }
@@ -51,6 +53,7 @@ class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Help
         return $this->getAddressLine(
             $address,
             'address_number',
+            null,
             $storeId
         );
     }
@@ -60,6 +63,7 @@ class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Help
         return $this->getAddressLine(
             $address,
             'address_complement',
+            null,
             $storeId
         );
     }
@@ -69,6 +73,7 @@ class Codigo5_BoletoSimples_Helper_Attributes extends Codigo5_BoletoSimples_Help
         return $this->getAddressLine(
             $address,
             'address_neighborhood',
+            null,
             $storeId
         );
     }

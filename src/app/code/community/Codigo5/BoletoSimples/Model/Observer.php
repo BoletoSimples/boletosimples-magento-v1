@@ -4,25 +4,11 @@ class Codigo5_BoletoSimples_Model_Observer
 {
     public function checkAuthConfig()
     {
-        $_helper = Mage::helper('codigo5_boletosimples');
+        $helper = Mage::helper('codigo5_boletosimples/webservice');
 
-        if ($_helper->isPaymentMethodActive()) {
-            $_helper->ensureLibrariesLoad();
-
-            try {
-                $user = BoletoSimples\Extra::userinfo();
-
-                Mage::getSingleton('core/session')->addSuccess(
-                    Mage::getModel(
-                        'codigo5_boletosimples/messageBuilder',
-                        $_helper->__('Hello %s, we have successfully saved your credentials.', $user['full_name'])
-                    )
-                );
-            } catch (Exception $e) {
-                throw new Codigo5_BoletoSimples_Exception(
-                    $_helper->__('Could not authenticate > "%s"', $e->getMessage())
-                );
-            }
+        if ($helper->isPaymentMethodActive()) {
+            $helper->checkAuth();
+            $helper->checkWebhooks();
         }
     }
 }

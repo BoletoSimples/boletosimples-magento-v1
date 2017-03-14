@@ -11,6 +11,11 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
         return self::VERSION;
     }
 
+    public function buildMessage($message)
+    {
+        return Mage::getModel('codigo5_boletosimples/messageBuilder', $message);
+    }
+
     public function wrapException(Exception $exception)
     {
         if ($exception instanceof Codigo5_BoletoSimples_Exception) {
@@ -41,7 +46,7 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
         ));
     }
 
-    public function getConfig($node, $storeId = null, $default = null)
+    public function getConfig($node, $default = null, $storeId = null)
     {
         $value = Mage::getStoreConfig(self::XML_CONFIG_BASE_PATH . '/' . $node, $storeId);
 
@@ -54,6 +59,11 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         return $value;
+    }
+
+    public function saveConfig($node, $value, $scope = 'default', $scopeId = 0)
+    {
+        return Mage::getConfig()->saveConfig(self::XML_CONFIG_BASE_PATH . '/' . $node, $value, $scope, $scopeId);
     }
 
     public function getPaymentMethod($storeId = null)

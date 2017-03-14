@@ -43,17 +43,10 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
         $builder = Mage::getModel('codigo5_boletosimples/order_builder')->build($order);
         $bankBillet = BoletoSimples\BankBillet::create($builder->getData());
 
-        // TODO: Handle errors from BoletoSimples API in a better way
         if (!$bankBillet->isPersisted()) {
-            $fieldsErrors = array_filter($bankBillet->response_errors);
-            $fieldsErrors = array_map(function($errors, $key) {
-                if (is_array($errors)) {
-                    $errors = implode(', ', $errors);
-                }
-                return "'{$key}' {$errors}";
-            }, $fieldsErrors, array_keys($fieldsErrors));
-
-            throw new Codigo5_BoletoSimples_Exception(implode(' / ', $fieldsErrors));
+            throw new Codigo5_BoletoSimples_Exception(
+                Mage::helper('codigo5_boletosimples/webservice')->humanizeResourceErrors($bankBillet)
+            );
         }
 
         $paymentMethod = $helper->getPaymentMethod($order->getStoreId());
@@ -91,5 +84,10 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
                    $order->save();
                 }
         }
+    }
+
+    public function getSupportedWebhooksEvents()
+    {
+        return array('bank_billet.paid');
     }
 }
