@@ -39,6 +39,6 @@ class Codigo5_BoletoSimples_Block_Adminhtml_System_Config_Comment extends Mage_C
 
     protected function _getHelper()
     {
-        return Mage::helper('codigo5_boletosimples');
+        return Mage::helper('codigo5_boletosimples/info');
     }
 }

@@ -39,7 +39,7 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
     protected function getHelper()
     {
         if (is_null($this->_helper)) {
-            $this->_helper = Mage::helper('codigo5_boletosimples');
+            $this->_helper = Mage::helper('codigo5_boletosimples/attributes');
         }
         return $this->_helper;
     }

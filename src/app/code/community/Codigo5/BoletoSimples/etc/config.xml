@@ -35,7 +35,8 @@
                 <active>0</active>
                 <model>codigo5_boletosimples/payment_method_boletoSimples</model>
                 <allowspecific>0</allowspecific>
-                <order_status>pending</order_status>
+                <payment_action>init</payment_action>
+                <order_status>boletosimples_pending</order_status>
                 <title>Boleto Simples</title>
                 <environment>sandbox</environment>
                 <sort_order>100</sort_order>

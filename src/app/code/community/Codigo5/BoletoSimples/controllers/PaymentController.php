@@ -14,19 +14,16 @@ class Codigo5_BoletoSimples_PaymentController extends Mage_Core_Controller_Front
         $helper = Mage::helper('codigo5_boletosimples');
         $order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
 
-        if ($order->getState() != Mage_Sales_Model_Order::STATE_NEW || !$helper->matchPaymentMethod($order)) {
+        if ($order->getState() !== Mage_Sales_Model_Order::STATE_NEW || !$helper->matchPaymentMethod($order)) {
             return $this->norouteAction();
         }
 
         try {
             $paymentMethod = $helper->getPaymentMethod();
-            $bankBillet = $paymentMethod->register($order);
+            $paymentMethod->process($order);
 
             $this->loadLayout();
             $this->_title($helper->__('Your order has been received'));
-
-            $this->getLayout()->getBlock('checkout.success')
-                ->setBankBillet($bankBillet);
 
             $this->renderLayout();
         } catch (Exception $e) {
@@ -52,5 +49,34 @@ class Codigo5_BoletoSimples_PaymentController extends Mage_Core_Controller_Front
         }
 
         $this->_redirectUrl($order->getBoletosimplesBankBilletUrl());
+    }
+
+    public function webhookAction()
+    {
+        if (!$this->getRequest()->isPost()) {
+            return $this->norouteAction();
+        }
+
+        $helper = Mage::helper('codigo5_boletosimples/request');
+        $result = array('error' => false);
+
+        try {
+            $helper->validateRequestSignature($this->getRequest());
+            $helper->getPaymentMethod()->handleWebhook($helper->parseBody($this->getRequest()));
+        } catch (Exception $e) {
+            $exception = $helper->wrapException($e);
+
+            Mage::logException($exception);
+            Mage::log($exception->getMessage());
+
+            $result['error'] = true;
+            $result['error_message'] = $exception->getMessage();
+
+            $this->getResponse()->setHeader('HTTP/1.1', '401 Unauthorized');
+        }
+
+        $this->getResponse()
+            ->setHeader('Content-type', 'application/json', true)
+            ->setBody(Mage::helper('core')->jsonEncode($result));
     }
 }
