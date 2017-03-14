@@ -298,17 +298,17 @@
     },
     {
         "name": "boletosimples/boletosimples",
-        "version": "v0.0.5",
-        "version_normalized": "0.0.5.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/BoletoSimples/boletosimples-php.git",
-            "reference": "333a975d251a0dfeb10f991569ef2ac3ffec4327"
+            "reference": "f4cf6707b10775d334e75111a7528e719f991f72"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/BoletoSimples/boletosimples-php/zipball/333a975d251a0dfeb10f991569ef2ac3ffec4327",
-            "reference": "333a975d251a0dfeb10f991569ef2ac3ffec4327",
+            "url": "https://api.github.com/repos/BoletoSimples/boletosimples-php/zipball/f4cf6707b10775d334e75111a7528e719f991f72",
+            "reference": "f4cf6707b10775d334e75111a7528e719f991f72",
             "shasum": ""
         },
         "require": {
@@ -321,9 +321,9 @@
             "phpunit/phpunit": "4.5.*",
             "ptrofimov/xpmock": "dev-master"
         },
-        "time": "2015-03-18 02:56:31",
+        "time": "2017-02-08 23:17:33",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "BoletoSimples\\": [

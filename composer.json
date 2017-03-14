@@ -25,6 +25,6 @@
     },
     "require": {
         "php": ">=5.4.0",
-        "boletosimples/boletosimples": "^0.0.5"
+        "boletosimples/boletosimples": "dev-master"
     }
 }

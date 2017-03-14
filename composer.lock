@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34cb670dcc2287ee466f2eebe275b256",
-    "content-hash": "4e7067efba253750c3a0fe558aef1f88",
+    "hash": "c6fcddec95291076647d5dab3b4e80fd",
+    "content-hash": "275e659be05b37ae0945f5e6f84eeefd",
     "packages": [
         {
             "name": "boletosimples/boletosimples",
-            "version": "v0.0.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BoletoSimples/boletosimples-php.git",
-                "reference": "333a975d251a0dfeb10f991569ef2ac3ffec4327"
+                "reference": "f4cf6707b10775d334e75111a7528e719f991f72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BoletoSimples/boletosimples-php/zipball/333a975d251a0dfeb10f991569ef2ac3ffec4327",
-                "reference": "333a975d251a0dfeb10f991569ef2ac3ffec4327",
+                "url": "https://api.github.com/repos/BoletoSimples/boletosimples-php/zipball/f4cf6707b10775d334e75111a7528e719f991f72",
+                "reference": "f4cf6707b10775d334e75111a7528e719f991f72",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "ecommerce",
                 "simples"
             ],
-            "time": "2015-03-18 02:56:31"
+            "time": "2017-02-08 23:17:33"
         },
         {
             "name": "commerceguys/guzzle-oauth2-plugin",
@@ -353,7 +353,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "boletosimples/boletosimples": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -18,16 +18,20 @@ Biblioteca PHP para acessar informações do [Boleto Simples](http://boletosimpl
 
 ## Instalação
 
+### Requisitos
+
+PHP 5.4 ou superior
+
 ### Usando [Composer](https://getcomposer.org/)
 
 Crie um arquivo chamado `composer.json` com o seguinte conteúdo:
 
 ```json
 {
-  "minimum-stability": "beta",
+  "minimum-stability": "dev",
   "prefer-stable" : true,
   "require": {
-    "boletosimples/boletosimples": "0.0.3"
+    "boletosimples/boletosimples": "dev-master"
   }
 }
 ```
@@ -216,6 +220,25 @@ foreach($transactions as $transaction) {
 $userinfo = BoletoSimples\Extra::userinfo();
 ```
 
+### Remessas
+
+```php
+// Criar uma remessa
+$remittance = BoletoSimples\Remittance::create(array (
+  'bank_billet_account_id' => "1"
+));
+```
+
+### Retornos
+
+```php
+// Enviar um retorno
+//Caminho para o seu arquivo
+$path = realpath(dirname(__FILE__) . '/cnab.txt');
+$discharge = BoletoSimples\Discharge::create(array (
+  'content' => file_get_contents($path)
+));
+```
 
 ## Desenvolvendo
 
