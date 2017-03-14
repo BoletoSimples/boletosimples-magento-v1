@@ -77,15 +77,18 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
             case 'bank_billet.paid':
                 $orderId = @$webhook['object']['meta']['order_id'];
                 $order = Mage::getModel('sales/order')->load($orderId);
-                $desiredStatus = 'paid';
+                $newStatus = 'boletosimples_paid';
 
-                if ($order->getId() && $order->getStatus() != $desiredStatus) {
-                    $order->addStatusToHistory($desiredStatus, null, true);
-                    $order->sendOrderUpdateEmail(true, null);
+                if ($order->getId() && $order->getStatus() !== $newStatus) {
+                    $helper = Mage::helper('codigo5_boletosimples/payment');
 
-                    // Makes the notification of the order of historic displays the correct date and time
-                    Mage::app()->getLocale()->date();
-                    $order->save();
+                    $order->setState(
+                       $helper->getStateByStatus($newStatus),
+                       $newStatus,
+                       $helper->__('Bank billet has been paid'),
+                       true
+                   );
+                   $order->save();
                 }
         }
     }
