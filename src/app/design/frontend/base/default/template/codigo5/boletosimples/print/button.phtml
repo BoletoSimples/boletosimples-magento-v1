@@ -1,0 +1,26 @@
+<?php if ($this->shouldOpenWindow()) : ?>
+    <button id="<?php echo $this->getButtonId() ?>" class="button <?php echo $this->getButtonBaseId() ?>" title="<?php echo Mage::helper('codigo5_boletosimples')->quoteEscape($this->__('Print your Bank Billet')) ?>">
+        <span>
+            <span><?php echo $this->__('Print your Bank Billet') ?></span>
+        </span>
+    </button>
+    <script>
+        (function() {
+            'use strict';
+
+            function showBoletoSimplesPrintPopup() {
+                popWin('<?php echo $this->getPrintUrl() ?>', 'boletosimples', 'width=800,height=600,resizable=yes,scrollbars=yes')
+            }
+
+            $('<?php echo $this->getButtonId() ?>').observe('click', function() {
+                showBoletoSimplesPrintPopup();
+            });
+        }());
+    </script>
+<?php else : ?>
+    <a href="<?php echo $this->getPrintUrl() ?>" class="btn <?php echo $this->getButtonBaseId() ?>" title="<?php echo Mage::helper('codigo5_boletosimples')->quoteEscape($this->__('Print your Bank Billet')) ?>" target="_blank">
+        <span>
+            <span><?php echo $this->__('Print your Bank Billet') ?></span>
+        </span>
+    </a>
+<?php endif ?>

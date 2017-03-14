@@ -64,6 +64,11 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
         return (bool)(int)$this->getPaymentMethod($storeId)->getConfigData('active');
     }
 
+    public function matchPaymentMethod(Mage_Sales_Model_Order $order)
+    {
+        return $order->getPayment()->getMethod() === Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples::CODE;
+    }
+
     public function ensureLibrariesLoad()
     {
         if (require_once(Mage::getBaseDir('lib') . '/boletosimples/autoload.php')) {

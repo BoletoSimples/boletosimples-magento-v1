@@ -2,7 +2,7 @@
 <layout>
     <codigo5_boletosimples_payment_request>
         <reference name="content">
-            <block type="checkout/onepage_success" name="checkout.success" template="codigo5/boletosimples/checkout/success.phtml"></block>
+            <block type="codigo5_boletosimples/checkout_success" name="checkout.success" template="codigo5/boletosimples/checkout/success.phtml"/>
         </reference>
     </codigo5_boletosimples_payment_request>
 </layout>

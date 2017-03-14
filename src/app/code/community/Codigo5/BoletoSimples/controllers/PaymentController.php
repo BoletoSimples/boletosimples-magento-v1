@@ -13,15 +13,13 @@ class Codigo5_BoletoSimples_PaymentController extends Mage_Core_Controller_Front
 
         $helper = Mage::helper('codigo5_boletosimples');
         $order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
-        $paymentMethod = $helper->getPaymentMethod();
-        $isOrderNew = $order->getState() == Mage_Sales_Model_Order::STATE_NEW;
-        $matchPaymentMethod = $order->getPayment()->getMethod() == $paymentMethod->getCode();
 
-        if (!$isOrderNew || !$matchPaymentMethod) {
+        if ($order->getState() != Mage_Sales_Model_Order::STATE_NEW || !$helper->matchPaymentMethod($order)) {
             return $this->norouteAction();
         }
 
         try {
+            $paymentMethod = $helper->getPaymentMethod();
             $bankBillet = $paymentMethod->register($order);
 
             $this->loadLayout();
@@ -42,5 +40,17 @@ class Codigo5_BoletoSimples_PaymentController extends Mage_Core_Controller_Front
 
             $this->_redirectUrl(Mage::getUrl('checkout/cart'));
         }
+    }
+
+    public function printAction()
+    {
+        $helper = Mage::helper('codigo5_boletosimples');
+        $order = Mage::getModel('sales/order')->loadByIncrementId($this->getRequest()->getParam('order_id'));
+
+        if (!$order->getId() || !$helper->matchPaymentMethod($order) || !$order->getBoletosimplesBankBilletUrl()) {
+            return $this->norouteAction();
+        }
+
+        $this->_redirectUrl($order->getBoletosimplesBankBilletUrl());
     }
 }
