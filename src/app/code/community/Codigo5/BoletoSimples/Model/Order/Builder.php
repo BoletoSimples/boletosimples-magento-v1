@@ -17,7 +17,6 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
             'description' => $this->buildDescription($order),
             'customer_person_name' => $this->buildCustomerPersonName($order),
             'customer_cnpj_cpf' => $this->buildCustomerCnpjCpf($order),
-            'customer_person_type' => $this->buildCustomerPersonType($order),
             'customer_email' => $this->buildCustomerEmail($order),
             'customer_phone_number' => $this->buildCustomerPhoneNumber($order),
             'customer_address' => $this->buildCustomerAddress($order),
@@ -87,11 +86,6 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
     protected function buildCustomerCnpjCpf(Mage_Sales_Model_Order $order)
     {
         return $this->getHelper()->getCpfCnpj($this->getCustomer($order), $order->getStoreId());
-    }
-
-    protected function buildCustomerPersonType(Mage_Sales_Model_Order $order)
-    {
-        return $this->getHelper()->isCpf($this->buildCustomerCnpjCpf($order)) ? 'individual' : 'legal';
     }
 
     protected function buildCustomerEmail(Mage_Sales_Model_Order $order)

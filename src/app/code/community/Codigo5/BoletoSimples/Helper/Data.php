@@ -106,11 +106,6 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
         return $value;
     }
 
-    public function isCpf($value)
-    {
-        return strlen($this->extractNumbers($value)) === 11;
-    }
-
     public function extractNumbers($value)
     {
         return preg_replace('/\D/', '', $value);
