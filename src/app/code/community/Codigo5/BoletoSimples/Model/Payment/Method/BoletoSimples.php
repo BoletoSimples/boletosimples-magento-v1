@@ -21,7 +21,7 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
         $helper = Mage::helper('codigo5_boletosimples');
         $helper->ensureLibrariesLoad();
 
-        $builder = Mage::getModel('codigo5_boletosimples/builder_order')->build($order);
+        $builder = Mage::getModel('codigo5_boletosimples/order_builder')->build($order);
         $bank_billet = BoletoSimples\BankBillet::create($builder->getData());
 
         // TODO: Handle errors from BoletoSimples API in a better way

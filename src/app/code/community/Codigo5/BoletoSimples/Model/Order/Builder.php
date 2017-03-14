@@ -1,6 +1,6 @@
 <?php
 
-class Codigo5_BoletoSimples_Model_Builder_Order extends Varien_Object
+class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
 {
     protected $_helper;
 
@@ -68,12 +68,10 @@ class Codigo5_BoletoSimples_Model_Builder_Order extends Varien_Object
 
     protected function buildExpireAt(Mage_Sales_Model_Order $order)
     {
-        $format = 'Y-m-d';
-        $today = Mage::getModel('core/date')->date($format);
-        $dateTime = new DateTime($today);
-        $dateInterval = new DateInterval(sprintf('P%dD', $this->getExpiryDays($order)));
-        $dateTime->add($dateInterval);
-        return $dateTime->format($format);
+        return Mage::app()->getLocale()
+            ->date()
+            ->addDay($this->getExpiryDays($order))
+            ->get('yyyy-MM-dd');
     }
 
     protected function buildDescription(Mage_Sales_Model_Order $order)
