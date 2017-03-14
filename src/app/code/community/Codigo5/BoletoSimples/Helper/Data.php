@@ -83,6 +83,15 @@ class Codigo5_BoletoSimples_Helper_Data extends Mage_Core_Helper_Abstract
         return $order->getPayment()->getMethod() === Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples::CODE;
     }
 
+    public function getOrderStateByStatus($status)
+    {
+        $status = Mage::getResourceModel('sales/order_status_collection')
+            ->addStatusFilter($status)
+            ->getFirstItem();
+
+        return $status->getState();
+    }
+
     public function addBlankOption($options)
     {
         array_unshift($options, array(

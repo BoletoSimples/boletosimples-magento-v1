@@ -19,8 +19,8 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
             if ($status) {
                 $stateObject->setStatus($status);
 
-                $helper = Mage::helper('codigo5_boletosimples/payment');
-                $state = $helper->getStateByStatus($status);
+                $helper = Mage::helper('codigo5_boletosimples');
+                $state = $helper->getOrderStateByStatus($status);
 
                 $stateObject->setState($state);
                 $stateObject->setIsNotified(true);
@@ -37,7 +37,7 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
 
     public function process(Mage_Sales_Model_Order $order)
     {
-        $helper = Mage::helper('codigo5_boletosimples/payment');
+        $helper = Mage::helper('codigo5_boletosimples');
         $helper->ensureLibrariesLoad();
 
         $builder = Mage::getModel('codigo5_boletosimples/order_builder')->build($order);
@@ -56,7 +56,7 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
             ->setBoletosimplesBankBilletId($bankBillet->id)
             ->setBoletosimplesBankBilletUrl($bankBillet->shorten_url)
             ->setState(
-               $helper->getStateByStatus($newStatus),
+               $helper->getOrderStateByStatus($newStatus),
                $newStatus,
                $helper->__('Bank billet has been created'),
                false
@@ -73,10 +73,10 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
                 $newStatus = 'boletosimples_paid';
 
                 if ($order->getId() && $order->getStatus() !== $newStatus) {
-                    $helper = Mage::helper('codigo5_boletosimples/payment');
+                    $helper = Mage::helper('codigo5_boletosimples');
 
                     $order->setState(
-                       $helper->getStateByStatus($newStatus),
+                       $helper->getOrderStateByStatus($newStatus),
                        $newStatus,
                        $helper->__('Bank billet has been paid'),
                        true
