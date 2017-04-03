@@ -74,14 +74,34 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
 
                 if ($order->getId() && $order->getStatus() !== $newStatus) {
                     $helper = Mage::helper('codigo5_boletosimples');
+                    $comment = $helper->__('Bank billet has been paid');
+                    $notify = true;
+                    $transactionSave = Mage::getModel('core/resource_transaction');
 
+                    // Capture
+                    if ($order->canInvoice()) {
+                        $invoice = $order->prepareInvoice();
+                        $invoice->register();
+
+                        $invoice->addComment($comment, $notify);
+                        $invoice->setEmailSent($notify);
+
+                        $transactionSave->addObject($invoice);
+
+                        $invoice->sendEmail($notify, $comment);
+                    }
+
+                    // Change status
                     $order->setState(
-                       $helper->getOrderStateByStatus($newStatus),
-                       $newStatus,
-                       $helper->__('Bank billet has been paid'),
-                       true
-                   );
-                   $order->save();
+                        $helper->getOrderStateByStatus($newStatus),
+                        $newStatus,
+                        $comment,
+                        true
+                    );
+                    $transactionSave->addObject($order);
+
+                    // Transactionally save
+                    $transactionSave->save();
                 }
         }
     }
