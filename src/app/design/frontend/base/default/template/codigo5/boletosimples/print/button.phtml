@@ -16,8 +16,10 @@
                 showBoletoSimplesPrintPopup();
             });
 
-            // Auto open the popup
-            showBoletoSimplesPrintPopup();
+            document.observe('dom:loaded', function() {
+                // Auto open the popup
+                showBoletoSimplesPrintPopup();
+            });
         }());
     </script>
 <?php else : ?>
