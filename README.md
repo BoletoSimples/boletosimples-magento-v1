@@ -10,7 +10,7 @@ Módulo de Integração do Boleto Simples para o e-commerce Magento 1.x
 
 
 ## Instalando
-1. Faça o download dos arquivos e descompacte os arquivos;
+1. Faça o [download dos arquivos](https://github.com/BoletoSimples/boletosimples-magento-v1/archive/master.zip) e descompacte os arquivos;
 2. Copie todos os arquivos da pasta `src/` do módulo e cole na raiz da sua loja Magento.
 
 
