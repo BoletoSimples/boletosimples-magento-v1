@@ -103,6 +103,7 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
                     // Transactionally save
                     $transactionSave->save();
                 }
+                break;
         }
     }
 
