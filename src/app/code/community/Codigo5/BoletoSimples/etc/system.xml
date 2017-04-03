@@ -80,7 +80,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment>It must be between 1 and 31 days.</comment>
+                            <comment>It must be between 1 and 31 (days).</comment>
                             <depends>
                                 <active>1</active>
                             </depends>

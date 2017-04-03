@@ -12,22 +12,22 @@ class Codigo5_BoletoSimples_Helper_Request extends Codigo5_BoletoSimples_Helper_
         $signature = $request->getServer('HTTP_X_HUB_SIGNATURE');
 
         if (is_null($signature)) {
-            throw new Codigo5_BoletoSimples_Exception($this->__("HTTP header 'X-Hub-Signature' is missing."));
+            throw new Codigo5_BoletoSimples_Exception("HTTP header 'X-Hub-Signature' is missing.");
         } elseif (!extension_loaded('hash')) {
-            throw new Codigo5_BoletoSimples_Exception($this->__("Missing 'hash' extension to check the secret code validity."));
+            throw new Codigo5_BoletoSimples_Exception("Missing 'hash' extension to check the secret code validity.");
         }
 
         list($algorithm, $hash) = explode('=', $signature, 2) + array('', '');
 
         if (!in_array($algorithm, hash_algos(), true)) {
-            throw new Codigo5_BoletoSimples_Exception($this->__("Hash algorithm '%s' is not supported.", $algorithm));
+            throw new Codigo5_BoletoSimples_Exception(sprintf("Hash algorithm '%s' is not supported.", $algorithm));
         }
 
         $helper = Mage::helper('codigo5_boletosimples/hash');
         $generatedHash = $this->generateRequestHash($request, $algorithm);
 
         if (!$helper->hashEquals($generatedHash, $hash)) {
-            throw new Codigo5_BoletoSimples_Exception($this->__('Hook secret does not match.'));
+            throw new Codigo5_BoletoSimples_Exception('Hook secret does not match.');
         }
     }
 

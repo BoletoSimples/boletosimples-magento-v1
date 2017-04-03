@@ -67,6 +67,15 @@
                 </codigo5_boletosimples>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <codigo5_boletosimples>
+                    <files>
+                        <default>Codigo5_BoletoSimples.csv</default>
+                    </files>
+                </codigo5_boletosimples>
+            </modules>
+        </translate>
     </adminhtml>
     <frontend>
         <routers>
@@ -85,5 +94,14 @@
                 </codigo5_boletosimples>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <codigo5_boletosimples>
+                    <files>
+                        <default>Codigo5_BoletoSimples.csv</default>
+                    </files>
+                </codigo5_boletosimples>
+            </modules>
+        </translate>
     </frontend>
 </config>

@@ -1,8 +1,9 @@
 src/app/code/community/Codigo5/BoletoSimples                                app/code/community/Codigo5/BoletoSimples
-src/app/etc/modules/*.xml                                                   app/etc/modules/
 src/app/design/frontend/base/default/layout/codigo5/*.xml                   app/design/frontend/base/default/layout/codigo5/
 src/app/design/frontend/base/default/template/codigo5/boletosimples         app/design/frontend/base/default/template/codigo5/boletosimples
 src/app/design/adminhtml/default/default/layout/codigo5/*.xml               app/design/adminhtml/default/default/layout/codigo5/
 src/app/design/adminhtml/default/default/template/codigo5/boletosimples     app/design/adminhtml/default/default/template/codigo5/boletosimples
+src/app/locale/pt_BR/*.csv                                                  app/locale/pt_BR/
+src/app/etc/modules/*.xml                                                   app/etc/modules/
 src/lib/boletosimples                                                       lib/boletosimples
 src/skin/adminhtml/default/default/codigo5/boletosimples                    skin/adminhtml/default/default/codigo5/boletosimples

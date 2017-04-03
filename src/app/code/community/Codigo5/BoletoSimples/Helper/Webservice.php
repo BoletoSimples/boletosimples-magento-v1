@@ -13,7 +13,7 @@ class Codigo5_BoletoSimples_Helper_Webservice extends Codigo5_BoletoSimples_Help
             );
         } catch (Exception $e) {
             throw new Codigo5_BoletoSimples_Exception(
-                $this->__('Could not authenticate > "%s"', $e->getMessage())
+                $this->__('Could not authenticate > %s', $e->getMessage())
             );
         }
     }
@@ -53,7 +53,7 @@ class Codigo5_BoletoSimples_Helper_Webservice extends Codigo5_BoletoSimples_Help
             );
         } catch (Exception $e) {
             throw new Codigo5_BoletoSimples_Exception(
-                $this->__('Could not check the webbooks > "%s"', $e->getMessage())
+                $this->__('Could not check the webhooks > %s', $e->getMessage())
             );
         }
     }
