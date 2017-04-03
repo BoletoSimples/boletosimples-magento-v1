@@ -4,7 +4,7 @@ class Codigo5_BoletoSimples_Helper_Request extends Codigo5_BoletoSimples_Helper_
 {
     public function generateRequestHash(Zend_Controller_Request_Http $request, $algorithm)
     {
-        return hash_hmac($algorithm, $request->getRawBody(), $this->getPaymentMethod()->getConfigData('access_token'));
+        return hash_hmac($algorithm, $request->getRawBody(), $this->getPaymentMethod()->getConfigData('webhook_secret_key'));
     }
 
     public function validateRequestSignature(Zend_Controller_Request_Http $request)
