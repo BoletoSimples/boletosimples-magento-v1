@@ -3,7 +3,7 @@
 class Codigo5_BoletoSimples_Helper_Info extends Codigo5_BoletoSimples_Helper_Data
 {
     const LOGO_SKIN_PATH = 'adminhtml/default/default/codigo5/boletosimples/images/boletosimples.png';
-    const REGISTER_URL   = 'https://boletosimples.com.br/users/sign_up';
+    const REGISTER_URL   = 'https://boletosimples.com.br/?ref=nmylb';
 
     const AUTHOR_NAME           = 'Código5';
     const AUTHOR_URL            = 'https://www.codigo5.com.br';
