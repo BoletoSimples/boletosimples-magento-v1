@@ -15,6 +15,9 @@
             $('<?php echo $this->getButtonId() ?>').observe('click', function() {
                 showBoletoSimplesPrintPopup();
             });
+
+            // Auto open the popup
+            showBoletoSimplesPrintPopup();
         }());
     </script>
 <?php else : ?>
