@@ -36,9 +36,15 @@
                 <model>codigo5_boletosimples/payment_method_boletoSimples</model>
                 <allowspecific>0</allowspecific>
                 <payment_action>init</payment_action>
-                <order_status>boletosimples_pending</order_status>
                 <title>Boleto Simples</title>
                 <environment>sandbox</environment>
+                <expiry_days>3</expiry_days>
+                <order_status>boletosimples_pending</order_status>
+                <cpf_cnpj_attribute_code>taxvat</cpf_cnpj_attribute_code>
+                <address_attribute_code>1</address_attribute_code>
+                <address_number_attribute_code>2</address_number_attribute_code>
+                <address_complement_attribute_code>3</address_complement_attribute_code>
+                <address_neighborhood_attribute_code>4</address_neighborhood_attribute_code>
                 <sort_order>100</sort_order>
             </boletosimples>
         </payment>
