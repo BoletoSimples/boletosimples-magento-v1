@@ -131,9 +131,7 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
 
     protected function buildMeta(Mage_Sales_Model_Order $order)
     {
-        return array(
-            'order_id' => $order->getId()
-        );
+        return $order->getIncrementId();
     }
 
     private function getExpiryDays(Mage_Sales_Model_Order $order)

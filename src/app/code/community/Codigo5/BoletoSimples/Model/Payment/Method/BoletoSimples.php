@@ -68,8 +68,8 @@ class Codigo5_BoletoSimples_Model_Payment_Method_BoletoSimples extends Mage_Paym
     {
         switch ($webhook['event_code']) {
             case 'bank_billet.paid':
-                $orderId = @$webhook['object']['meta']['order_id'];
-                $order = Mage::getModel('sales/order')->load($orderId);
+                $orderIncrementId = @$webhook['object']['meta'];
+                $order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
                 $newStatus = 'boletosimples_paid';
 
                 if ($order->getId() && $order->getStatus() !== $newStatus) {
