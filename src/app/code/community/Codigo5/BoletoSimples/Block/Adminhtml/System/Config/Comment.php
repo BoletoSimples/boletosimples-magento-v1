@@ -17,6 +17,11 @@ class Codigo5_BoletoSimples_Block_Adminhtml_System_Config_Comment extends Mage_C
         return $this->_getHelper()->getRegisterUrl();
     }
 
+    public function getWebhooksUrl()
+    {
+        return $this->_getHelper()->getWebhooksUrl();
+    }
+
     public function getChangeAddressLinesUrl()
     {
         return Mage::getModel('adminhtml/url')->getUrl('adminhtml/system_config/edit', array('section' => 'customer'));

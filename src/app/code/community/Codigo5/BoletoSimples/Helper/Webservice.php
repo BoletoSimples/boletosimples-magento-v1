@@ -23,29 +23,29 @@ class Codigo5_BoletoSimples_Helper_Webservice extends Codigo5_BoletoSimples_Help
         try {
             $this->ensureLibrariesLoad();
 
-            $createdWebhooks = $this->getConfig('webhooks');
-            $createdWebhooks = (is_null($createdWebhooks)) ? array() : Mage::helper('core')->jsonDecode($createdWebhooks);
+            $currentWebhookSecretKey = $this->getConfig('webhook_secret_key');
 
-            // Check missing webhooks
-            $missingEvents = array_diff($this->getPaymentMethod()->getSupportedWebhooksEvents(), array_keys($createdWebhooks));
+            if (empty($currentWebhookSecretKey)) {
+                $currentWebhookEvents = array_filter(explode(',', $this->getConfig('webhook_events')));
 
-            if (count($missingEvents)) {
-                $builder = Mage::getModel('codigo5_boletosimples/webhook_builder')->build($missingEvents);
-                $newWebhook = BoletoSimples\Webhook::create($builder->getData());
+                // Check missing webhooks
+                $missingEvents = array_diff($this->getPaymentMethod()->getSupportedWebhooksEvents(), $currentWebhookEvents);
 
-                if (!$newWebhook->isPersisted()) {
-                    throw new Codigo5_BoletoSimples_Exception(
-                        $this->humanizeResourceErrors($newWebhook)
-                    );
+                if (count($missingEvents)) {
+                    $builder = Mage::getModel('codigo5_boletosimples/webhook_builder')->build($missingEvents);
+                    $newWebhook = BoletoSimples\Webhook::create($builder->getData());
+
+                    if (!$newWebhook->isPersisted()) {
+                        throw new Codigo5_BoletoSimples_Exception(
+                            $this->humanizeResourceErrors($newWebhook)
+                        );
+                    }
+
+                    $currentWebhookEvents = array_merge($currentWebhookEvents, $missingEvents);
+
+                    $this->saveConfig('webhook_secret_key', $newWebhook->secret_key);
+                    $this->saveConfig('webhook_events', implode(',', $currentWebhookEvents));
                 }
-
-                $newWebhooks = array_combine(
-                    $missingEvents,
-                    array_fill(0, count($missingEvents), $newWebhook->id)
-                );
-                $createdWebhooks = array_merge($createdWebhooks, $newWebhooks);
-
-                $this->saveConfig('webhooks', Mage::helper('core')->jsonEncode($createdWebhooks));
             }
 
             Mage::getSingleton('core/session')->addSuccess(

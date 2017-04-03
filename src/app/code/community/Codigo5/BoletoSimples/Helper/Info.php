@@ -4,6 +4,7 @@ class Codigo5_BoletoSimples_Helper_Info extends Codigo5_BoletoSimples_Helper_Dat
 {
     const LOGO_SKIN_PATH = 'adminhtml/default/default/codigo5/boletosimples/images/boletosimples.png';
     const REGISTER_URL   = 'https://boletosimples.com.br/?ref=nmylb';
+    const WEBHOOKS_URL   = 'http://api.boletosimples.com.br/modules/magento-v1/';
 
     const AUTHOR_NAME           = 'Código5';
     const AUTHOR_URL            = 'https://www.codigo5.com.br';
@@ -17,6 +18,11 @@ class Codigo5_BoletoSimples_Helper_Info extends Codigo5_BoletoSimples_Helper_Dat
     public function getRegisterUrl()
     {
         return self::REGISTER_URL;
+    }
+
+    public function getWebhooksUrl()
+    {
+        return self::WEBHOOKS_URL;
     }
 
     public function getAuthorName()
