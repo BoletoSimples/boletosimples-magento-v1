@@ -23,7 +23,7 @@ class Codigo5_BoletoSimples_Model_Order_Builder extends Varien_Object
             'customer_address_number' => $this->buildCustomerAddressNumber($order),
             'customer_address_complement' => $this->buildCustomerAddressComplement($order),
             'customer_neighborhood' => $this->buildCustomerNeighborhood($order),
-            'customer_city' => $this->buildCustomerCity($order),
+            'customer_city_name' => $this->buildCustomerCity($order),
             'customer_state' => $this->buildCustomerState($order),
             'customer_zipcode' => $this->buildCustomerZipcode($order),
             'meta' => $this->buildMeta($order)
